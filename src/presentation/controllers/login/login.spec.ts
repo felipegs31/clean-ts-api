@@ -3,7 +3,7 @@ import { HttpRequest } from './../../protocols/http'
 import { InvalidParamError } from './../../errors/invalid-param-error'
 import { EmailValidator } from './../../protocols/email-validator'
 import { MissingParamError } from './../../errors/missing-param-error'
-import { badRequest, serverError, unauthorized } from './../../helper/http-helper'
+import { badRequest, serverError, unauthorized, ok } from './../../helper/http-helper'
 import { LoginController } from './login'
 
 const makeEmailValidator = (): EmailValidator => {
@@ -112,5 +112,20 @@ describe('Login Controller', () => {
 
     const httpResponse = await sut.handle(makeFakeRequest())
     expect(httpResponse).toEqual(unauthorized())
+  })
+
+  test('Shuold return 500 if authentication Throws', async () => {
+    const { sut, authenticationStub } = makeSut()
+    jest.spyOn(authenticationStub, 'auth').mockReturnValueOnce(new Promise((resolve, reject) => reject(new Error())))
+
+    const httpResponse = await sut.handle(makeFakeRequest())
+    expect(httpResponse).toEqual(serverError(new Error()))
+  })
+
+  test('Shuold return 200 if valid credentials are provided', async () => {
+    const { sut } = makeSut()
+
+    const httpResponse = await sut.handle(makeFakeRequest())
+    expect(httpResponse).toEqual(ok({ accessToken: 'any_token' }))
   })
 })
