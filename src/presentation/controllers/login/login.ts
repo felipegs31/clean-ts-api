@@ -1,4 +1,4 @@
-import { Validation } from './../../helper/validators/validation'
+import { Validation } from '../../protocols/validation'
 import { Authentication } from './../../../domain/usecases/authentication'
 import { badRequest, serverError, unauthorized, ok } from './../../helper/http/http-helper'
 import { HttpRequest, HttpResponse } from './../../protocols/http'
@@ -24,7 +24,10 @@ export class LoginController implements Controller {
       }
 
       const { email, password } = httpRequest.body
-      const accessToken = await this.authentication.auth(email, password)
+      const accessToken = await this.authentication.auth({
+        email,
+        password
+      })
       if (!accessToken) {
         return unauthorized()
       }
