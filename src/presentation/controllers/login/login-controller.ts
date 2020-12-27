@@ -1,8 +1,8 @@
 import { Validation } from '../../protocols/validation'
-import { Authentication } from './../../../domain/usecases/authentication'
-import { badRequest, serverError, unauthorized, ok } from './../../helper/http/http-helper'
-import { HttpRequest, HttpResponse } from './../../protocols/http'
-import { Controller } from './../../protocols/controller'
+import { Authentication } from '../../../domain/usecases/authentication'
+import { badRequest, serverError, unauthorized, ok } from '../../helper/http/http-helper'
+import { HttpRequest, HttpResponse } from '../../protocols/http'
+import { Controller } from '../../protocols/controller'
 
 export class LoginController implements Controller {
   private readonly authentication: Authentication
