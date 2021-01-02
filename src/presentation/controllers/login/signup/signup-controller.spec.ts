@@ -1,9 +1,9 @@
-import { EmailInUseError } from './../../errors/email-in-use-error'
-import { forbidden } from './../../helper/http/http-helper'
-import { Authentication, AuthenticationModel } from './../../../domain/usecases/authentication'
-import { ok, badRequest, serverError } from '../../helper/http/http-helper'
-import { HttpRequest } from '../../protocols/http'
-import { MissingParamError, ServerError } from '../../errors'
+import { EmailInUseError } from '../../../errors/email-in-use-error'
+import { forbidden, ok, badRequest, serverError } from '../../../helper/http/http-helper'
+import { Authentication, AuthenticationModel } from '../../../../domain/usecases/authentication'
+
+import { HttpRequest } from '../../../protocols/http'
+import { MissingParamError, ServerError } from '../../../errors'
 import { SignUpController } from './signup-controller'
 import { AccountModel, AddAccountModel, AddAccount, Validation } from './signup-controller-protocols'
 
