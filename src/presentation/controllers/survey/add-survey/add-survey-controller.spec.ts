@@ -1,5 +1,5 @@
 import { AddSurvey, AddSurveyModel } from './../../../../domain/usecases/add-survey'
-import { badRequest } from './../../../helper/http/http-helper'
+import { badRequest, serverError, noContent } from './../../../helper/http/http-helper'
 import { MissingParamError } from './../../../errors/missing-param-error'
 import { Validation } from './../../../protocols/validation'
 import { AddSurveyController } from './add-survey-controller'
@@ -76,5 +76,18 @@ describe('Add survey Controller', () => {
     const httpRequest = makeFakeRequest()
     await sut.handle(httpRequest)
     expect(addSpy).toHaveBeenCalledWith(httpRequest.body)
+  })
+
+  test('Should return 500 if AddSurvey throws', async () => {
+    const { sut, addSurveyStub } = makeSut() // system under test
+    jest.spyOn(addSurveyStub, 'add').mockReturnValueOnce(new Promise((resolve, reject) => reject(new Error()))) // aqui podemos mockar qlker erro
+    const httpResponse = await sut.handle(makeFakeRequest())
+    expect(httpResponse).toEqual(serverError(new Error())) // precisa ser igual ao erro mockado
+  })
+
+  test('Should return 204 on success', async () => {
+    const { sut } = makeSut() // system under test
+    const httpResponse = await sut.handle(makeFakeRequest())
+    expect(httpResponse).toEqual(noContent()) // precisa ser igual ao erro mockado
   })
 })
