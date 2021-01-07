@@ -1,7 +1,6 @@
-import dotenv from 'dotenv'
+import './config'
 import { MongoHelper } from '../infra/db/mongodb/helpers/mongo-helper'
 import env from './config/env'
-dotenv.config()
 
 console.log('env.port', env.port)
 console.log('env.mongoUrl', env.mongoUrl)
