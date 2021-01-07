@@ -60,7 +60,7 @@ describe('Add survey Controller', () => {
     Mockdate.set(new Date())
   })
 
-  beforeAll(() => {
+  afterAll(() => {
     Mockdate.reset()
   })
 

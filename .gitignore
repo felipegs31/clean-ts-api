@@ -5,3 +5,4 @@ globalConfig.json
 *.pdf
 data
 !src/data
+.env
