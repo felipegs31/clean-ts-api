@@ -4,6 +4,7 @@ import { MissingParamError } from './../../../errors/missing-param-error'
 import { Validation } from './../../../protocols/validation'
 import { AddSurveyController } from './add-survey-controller'
 import { HttpRequest } from '../../../protocols/http'
+import Mockdate from 'mockdate'
 
 const makeFakeRequest = (): HttpRequest => ({
   body: {
@@ -11,7 +12,8 @@ const makeFakeRequest = (): HttpRequest => ({
     answers: [{
       image: 'any_image',
       answer: 'any_answer'
-    }]
+    }],
+    date: new Date()
   }
 })
 
@@ -54,6 +56,14 @@ const makeValidation = (): Validation => {
 }
 
 describe('Add survey Controller', () => {
+  beforeAll(() => {
+    Mockdate.set(new Date())
+  })
+
+  beforeAll(() => {
+    Mockdate.reset()
+  })
+
   test('should call Validation with correct values', async () => {
     const { sut, validationStub } = makeSut()
     const validateSpy = jest.spyOn(validationStub, 'validate')
