@@ -2,7 +2,7 @@ import { UpdateAccessTokenRepository } from '../../protocols/db/account/update-a
 import { Encrypter } from '../../protocols/criptography/encrypter'
 import { HashComparer } from '../../protocols/criptography/hash-comparer'
 import { AuthenticationModel } from './../../../domain/usecases/authentication'
-import { LoadAccountByEmailRepository } from '../../protocols/db/account/loadAccountByEmailRepository'
+import { LoadAccountByEmailRepository } from '../../protocols/db/account/load-account-by-email-repository'
 import { AccountModel } from './../../../domain/models/account'
 import { DbAuthentication } from './db-authentication'
 
