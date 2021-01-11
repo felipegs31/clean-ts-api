@@ -1,5 +1,8 @@
+import { AddAccountModel } from './../../../domain/usecases/add-account'
+import { AccountModel } from './../../../domain/models/account'
+import { AddAccountRepository } from './../../protocols/db/account/add-account-repository'
+import { Hasher } from './../../protocols/criptography/hasher'
 import { LoadAccountByEmailRepository } from './../../protocols/db/account/load-account-by-email-repository'
-import { Hasher, AccountModel, AddAccountModel, AddAccountRepository } from './db-add-account-protocols'
 import { DbAddAccount } from './db-add-acocunt'
 
 const makeHasher = (): Hasher => {

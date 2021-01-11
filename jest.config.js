@@ -13,5 +13,8 @@ module.exports = {
   transform: {
     '.+\\.ts': 'ts-jest'
   },
-  setupFiles: ["dotenv/config"]
-};
+  setupFiles: ["dotenv/config"],
+  moduleNameMapper: {
+    '@/(.*)': '<rootDir>/src/$1'
+  }
+}
