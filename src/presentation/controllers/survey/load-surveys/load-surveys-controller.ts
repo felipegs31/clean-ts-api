@@ -1,5 +1,5 @@
 import { ok } from './../../../helper/http/http-helper'
-import { LoadSurveys } from './../../../../domain/usecases/load-surveys'
+import { LoadSurveys } from '../../../../domain/usecases/survey/load-surveys'
 import { serverError, noContent } from '../../../helper/http/http-helper'
 import { HttpRequest, HttpResponse } from '../../../protocols/http'
 import { Controller } from '../../../protocols/controller'

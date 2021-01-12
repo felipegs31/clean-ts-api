@@ -1,5 +1,5 @@
 import { Validation } from '../../../protocols/validation'
-import { Authentication, AuthenticationModel } from '../../../../domain/usecases/authentication'
+import { Authentication, AuthenticationModel } from '../../../../domain/usecases/account/authentication'
 import { HttpRequest } from '../../../protocols/http'
 import { MissingParamError } from '../../../errors/missing-param-error'
 import { badRequest, serverError, unauthorized, ok } from '../../../helper/http/http-helper'

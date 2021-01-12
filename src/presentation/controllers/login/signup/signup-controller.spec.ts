@@ -1,6 +1,6 @@
 import { EmailInUseError } from '../../../errors/email-in-use-error'
 import { forbidden, ok, badRequest, serverError } from '../../../helper/http/http-helper'
-import { Authentication, AuthenticationModel } from '../../../../domain/usecases/authentication'
+import { Authentication, AuthenticationModel } from '../../../../domain/usecases/account/authentication'
 
 import { HttpRequest } from '../../../protocols/http'
 import { MissingParamError, ServerError } from '../../../errors'

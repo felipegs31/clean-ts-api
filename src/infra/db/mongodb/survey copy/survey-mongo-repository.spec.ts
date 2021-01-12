@@ -1,4 +1,4 @@
-import { AddSurveyModel } from './../../../../domain/usecases/survey/add-survey'
+import { AddSurveyModel } from '../../../../domain/usecases/survey/add-survey'
 import { Collection } from 'mongodb'
 import { SurveyMongoRepository } from './survey-mongo-repository'
 import { MongoHelper } from '../helpers/mongo-helper'
@@ -73,7 +73,6 @@ describe('Survey Mongo Repository', () => {
       const surveys = await sut.loadAll()
       expect(surveys.length).toBe(2)
       expect(surveys[0].question).toBe('any_question')
-      expect(surveys[0].id).toBeTruthy()
       expect(surveys[1].question).toBe('other_question')
     })
 
@@ -100,7 +99,6 @@ describe('Survey Mongo Repository', () => {
       const sut = makeSut()
       const survey = await sut.loadById(id)
       expect(survey).toBeTruthy()
-      expect(survey.id).toBeTruthy()
     })
   })
 })

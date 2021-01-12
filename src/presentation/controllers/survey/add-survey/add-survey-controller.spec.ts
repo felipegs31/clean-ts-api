@@ -1,4 +1,4 @@
-import { AddSurvey, AddSurveyModel } from './../../../../domain/usecases/add-survey'
+import { AddSurvey, AddSurveyModel } from './../../../../domain/usecases/survey/add-survey'
 import { badRequest, serverError, noContent } from './../../../helper/http/http-helper'
 import { MissingParamError } from './../../../errors/missing-param-error'
 import { Validation } from './../../../protocols/validation'
