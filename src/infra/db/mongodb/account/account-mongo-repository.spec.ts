@@ -30,7 +30,6 @@ describe('Account Mongo Repository', () => {
         email: 'any_email@mail.com',
         password: 'any_password'
       })
-      console.log('account test', account)
       expect(account).toBeTruthy()
       expect(account.id).toBeTruthy()
       expect(account.name).toBe('any_name')
@@ -49,7 +48,6 @@ describe('Account Mongo Repository', () => {
       })
 
       const account = await sut.loadByEmail('any_email@mail.com')
-      console.log('account test', account)
       expect(account).toBeTruthy()
       expect(account.id).toBeTruthy()
       expect(account.name).toBe('any_name')
@@ -60,7 +58,6 @@ describe('Account Mongo Repository', () => {
     test('Should return null if load By Email fails', async () => {
       const sut = makeSut()
       const account = await sut.loadByEmail('any_email@mail.com')
-      console.log('account test', account)
       expect(account).toBeFalsy()
     })
   })
@@ -96,7 +93,6 @@ describe('Account Mongo Repository', () => {
       })
 
       const account = await sut.loadByToken('any_token')
-      console.log('account test', account)
       expect(account).toBeTruthy()
       expect(account.id).toBeTruthy()
       expect(account.name).toBe('any_name')
@@ -115,7 +111,6 @@ describe('Account Mongo Repository', () => {
       })
 
       const account = await sut.loadByToken('any_token', 'any_role')
-      console.log('account test', account)
       expect(account).toBeTruthy()
       expect(account.id).toBeTruthy()
       expect(account.name).toBe('any_name')
@@ -134,7 +129,6 @@ describe('Account Mongo Repository', () => {
       })
 
       const account = await sut.loadByToken('any_token', 'admin')
-      console.log('account test', account)
       expect(account).toBeTruthy()
       expect(account.id).toBeTruthy()
       expect(account.name).toBe('any_name')
@@ -152,7 +146,6 @@ describe('Account Mongo Repository', () => {
       })
 
       const account = await sut.loadByToken('any_token', 'admin')
-      console.log('account test', account)
       expect(account).toBeFalsy()
     })
 
@@ -167,7 +160,6 @@ describe('Account Mongo Repository', () => {
       })
 
       const account = await sut.loadByToken('any_token')
-      console.log('account test', account)
       expect(account).toBeTruthy()
       expect(account.id).toBeTruthy()
       expect(account.name).toBe('any_name')
